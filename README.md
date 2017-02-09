@@ -34,7 +34,13 @@ QMediaPlayer tiene métodos para controlar la velocidad y el sentido de la repro
  
 Lamentablemente el diseñador de Qt Creator no nos pemite añadir controles QVideoWidget. En su lugar podemos añadir un control básico QWidget y usar la opción _Promote to..._ —en menú contextual con el botón derecho del ratón sobre el control— para indicar que durante la ejecución realmente queremos que sea un QVideoWidget. Más detalles en la [documentación de Qt](http://doc.qt.io/qt-4.8/designer-using-custom-widgets.html#promoting-widgets).
 
+## Manejo de errores
+
+Toda aplicación muestra mensajes de error adecuados para informar al usuario cuando algo falla. Eso se suele hacer con QMessageBox. Objetos como QCamera, QMediaPlayer y otros emiten la señal error() cuando detectan algún problema en su ejecución. Debemos interceptar esa señal y mostrar el error desde el slot correspondiente. Estas clases también suelen tener un método errorString() con el que obtener una descripción del error. Esa descripción debe ser parte del mensaje para informar de lo que ha pasado.
+
+Después de mostrar el error se debe dejar el programa listo para que el usuario pueda volver a probar. A menos que el error sea tan grave como para tener que lo mejor sea terminar la ejecución.
+
 ## Opcional
 
  1. Mostrar en la barra de estado de la ventana el nombre del archivo que se está reproduciendo o el nombre descriptivo de la webcam, según el modo en el que esté el programa. En el apartado _Acceder a un dispositivo específico_ del [artículo del blog](https://jmtorres.webs.ull.es/me/2014/02/capturando-secuencias-de-video-con-qt/) se ve como se obtiene el nombre descriptivo de cada dispositivo webcam detectado.
- 2. Añadir un botón que abra un cuadro de diálogo para preconfigurar la webcam a utilizar. No dudes en preguntar en caso de dudas sobre cómo añadir nuevos cuadros de diálogo a tu aplicación.
+ 2. Añadir un botón que abra un cuadro de diálogo para preconfigurar la webcam a utilizar. No dudes en preguntar en caso de dudas sobre cómo añadir nuevos cuadros de diálogo a tu aplicación. 
