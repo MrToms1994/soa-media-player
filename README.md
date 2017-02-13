@@ -27,10 +27,10 @@ Por lo tanto para hacer un reproductor multimedia necesitaremos añadir a nuestr
    * Si se estaba reproduciendo un archivo, esta se pondrá en pausa.
  * Webcam, para iniciar la captura de la webcam.
  * Stop, para detener la reproducción del archivo o la captura de la webcam.
- * Rewind, para reproducir la película hacia atrás. Debe estar desactivado si no se está reproduciendo una película.
- * Forward, para reproducir la película hacia adelante de forma acelerada. Debe estar desactivado si no se está reproduciendo una película.
+ * Backward, para hacer retroceder la posición de reproducción de la película. Debe estar desactivado si no se está reproduciendo una película o si el archivo no es buscable _(seekable)_.
+ * Forward, para hacer avanzar la posición de reproducción de la película. Debe estar desactivado si no se está reproduciendo una película o si el archivo no es buscable _(seekable)_.
  
-QMediaPlayer tiene métodos para controlar la velocidad y el sentido de la reproducción.
+QMediaPlayer tiene métodos para controlar la posición de reproducción y para saber si esa posición se puede mover.
  
 Lamentablemente el diseñador de Qt Creator no nos pemite añadir controles QVideoWidget. En su lugar podemos añadir un control básico QWidget y usar la opción _Promote to..._ —en menú contextual con el botón derecho del ratón sobre el control— para indicar que durante la ejecución realmente queremos que sea un QVideoWidget. Más detalles en la [documentación de Qt](http://doc.qt.io/qt-4.8/designer-using-custom-widgets.html#promoting-widgets).
 
